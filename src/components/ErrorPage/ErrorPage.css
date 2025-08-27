@@ -1,0 +1,23 @@
+.notfound {
+  text-align: center;
+  margin-top: 100px;
+  font-family: Arial, sans-serif;
+}
+
+.notfound h1 {
+  font-size: 100px;
+  color: #ff4d4f;
+}
+
+.notfound p {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.notfound a {
+  padding: 10px 20px;
+  background-color: #000;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+}
