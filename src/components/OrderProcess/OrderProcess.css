@@ -1,0 +1,31 @@
+.order-process-container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+.order-process-container h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #4a90e2;
+}
+
+.order-process-container p {
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.order-process-container ol {
+  margin-top: 20px;
+  padding-left: 20px;
+}
+
+.order-process-container li {
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+

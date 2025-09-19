@@ -141,3 +141,80 @@
   background: #ff4d4d;
   color: #fff;
 }
+.notification {
+  position: fixed;
+  top: 80px;
+  right: 30px;
+  background: #4caf50;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  z-index: 1000;
+  font-size: 1rem;
+  animation: fadeInOut 3s;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateY(-20px);}
+  10% { opacity: 1; transform: translateY(0);}
+  90% { opacity: 1; transform: translateY(0);}
+  100% { opacity: 0; transform: translateY(-20px);}
+}
+
+
+/* Add to Home.css or your main CSS file */
+
+.home-banner {
+  position: relative;
+  height: 320px;
+  background: url('/Images/Facebook.jpg') no-repeat center center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  margin-bottom: 32px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.12);
+  overflow: hidden;
+}
+
+.overlay {
+  background: rgba(0,0,0,0.45);
+  padding: 48px 32px;
+  border-radius: 16px;
+  text-align: center;
+  width: 100%;
+  max-width: 600px;
+}
+
+.overlay h1 {
+  color: #fff;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  letter-spacing: 1px;
+}
+
+.overlay p {
+  color: #f0f0f0;
+  font-size: 1.25rem;
+  margin: 0;
+}
+
+@media (max-width: 700px) {
+  .home-banner {
+    height: 200px;
+    margin-bottom: 20px;
+  }
+  .overlay {
+    padding: 24px 10px;
+    max-width: 95vw;
+  }
+  .overlay h1 {
+    font-size: 1.5rem;
+  }
+  .overlay p {
+    font-size: 1rem;
+  }
+}
+

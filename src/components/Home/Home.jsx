@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Footer from "../Footer/Footer";
+import bannerImg from "/Images/Facebook.jpg";
 
 const products = [
   { id: 1, name: "Kids Clothing", price: 800, image: "/Images/three kids.jpeg" },
@@ -19,6 +20,7 @@ const products = [
 
 const Home = ({ addToCart }) => {
   const [likedItems, setLikedItems] = useState([]);
+  const [showNotification, setShowNotification] = useState(false);
 
   const toggleLike = (id) => {
     setLikedItems((prev) =>
@@ -26,18 +28,34 @@ const Home = ({ addToCart }) => {
     );
   };
 
+  const handleAddToCart = (product) => {
+    addToCart(product);
+    setShowNotification(true);
+    setTimeout(() => {
+      setShowNotification(false);
+    }, 3000);
+  };
+
   return (
     <>
       <div className="homepage">
-        {}
-        <header className="home-header">
-          <h1>Welcome to Our Store</h1>
-          <p>Discover authentic African-inspired fashion for all occasions.</p>
+        <header className="home-banner" style={{ backgroundImage: `url(${bannerImg})` }}>
+       <div className="overlay">
+       <h1>Welcome to Our Store</h1>
+       <p>Discover authentic African-inspired fashion for all occasions.</p>
+      </div>
         </header>
 
+
         {}
+        {showNotification && (
+          <div className="notification">
+            You have added to cart successfully!
+          </div>
+        )}
+
         <section className="featured-section">
-          <h2 className="section-title">Featured Products</h2>
+          {/* <h2 className="section-title">Featured Products</h2> */}
           <div className="product-grid">
             {products.map((product) => (
               <div key={product.id} className="product-card">
@@ -46,7 +64,7 @@ const Home = ({ addToCart }) => {
                   <h3>{product.name}</h3>
                   <p className="price">R {product.price}</p>
                   <div className="product-actions">
-                    <button className="buy-btn" onClick={() => addToCart(product)}>
+                    <button className="buy-btn" onClick={() => handleAddToCart(product)}>
                       Add to Cart
                     </button>
                     <button
@@ -62,10 +80,9 @@ const Home = ({ addToCart }) => {
           </div>
         </section>
       </div>
-
-
     </>
   );
 };
 
 export default Home;
+

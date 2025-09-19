@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
-import LogIn from './components/LogIn/LogIn';
+import LogIn from "./components/LogIn/LogIn";
 import Signup from "./components/SignUp/SignUp";
 import Homepage from "./Page/Homepage";
 import Navbar from "./components/Navbar/Navbar";
@@ -12,8 +12,10 @@ import Family from "./components/Family/Family";
 import Men from "./components/Men/Men";
 import Women from "./components/Women/Women";
 import Kids from "./components/Kids/Kids";
-import Cart from './components/cart/Cart';
+import Cart from "./components/cart/Cart";
 import Checkout from "./components/checkout/Checkout";
+import OrderProcess from "./components/OrderProcess/Orderprocess";
+import"./components/Banner/Banner";
 
 function AppContent() {
   const [cartItems, setCartItems] = useState([]);
@@ -75,12 +77,12 @@ function AppContent() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/logIn" element={<LogIn />} />
         <Route path="/login" element={<LogIn />} />
-        <Route path="/family" element={<Family />} />
-        <Route path="/men" element={<Men />} />
-        <Route path="/women" element={<Women />} />
-        <Route path="/kids" element={<Kids />} />
-        {}
+        <Route path="/family" element={<Family onAddToCart={handleAddToCart} />} />
+        <Route path="/men" element={<Men onAddToCart={handleAddToCart} />} />
+        <Route path="/women" element={<Women onAddToCart={handleAddToCart} />} />
+        <Route path="/kids" element={<Kids onAddToCart={handleAddToCart} />} />
         <Route path="/checkout" element={<Checkout cartItems={cartItems} />} />
+        <Route path="/order-process" element={<OrderProcess />} />
         <Route 
           path="/protected" 
           element={
