@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+// App.js
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import LogIn from "./components/LogIn/LogIn";
 import Signup from "./components/SignUp/SignUp";
@@ -15,13 +16,22 @@ import Kids from "./components/Kids/Kids";
 import Cart from "./components/cart/Cart";
 import Checkout from "./components/checkout/Checkout";
 import OrderProcess from "./components/OrderProcess/Orderprocess";
-import"./components/Banner/Banner";
 
 function AppContent() {
   const [cartItems, setCartItems] = useState([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [user, setUser] = useState(null);
   const location = useLocation();
-  const hideNavAndFooter = ["/login", "/signin", "/signup", "/logIn", "/signUp"].includes(location.pathname.toLowerCase());
+
+  useEffect(() => {
+    const url = new URL(window.location);
+    url.searchParams.set('ip', '13.218.56.217');
+    window.history.pushState({}, '', url);
+  }, []);
+
+  const hideNavAndFooter = ["/login", "/signin", "/signup", "/logIn", "/signUp"].includes(
+    location.pathname.toLowerCase()
+  );
 
   const handleAddToCart = (product) => {
     const existingItem = cartItems.find((item) => item.id === product.id);
@@ -59,7 +69,12 @@ function AppContent() {
   return (
     <>
       {!hideNavAndFooter && (
-        <Navbar cartCount={totalItems} onCartClick={() => setIsCartOpen(true)} />
+        <Navbar 
+          cartCount={totalItems} 
+          onCartClick={() => setIsCartOpen(true)} 
+          user={user} 
+          setUser={setUser} 
+        />
       )}
 
       {isCartOpen && (
@@ -73,10 +88,10 @@ function AppContent() {
 
       <Routes>
         <Route path="/" element={<Homepage onAddToCart={handleAddToCart} />} />
-        <Route path="/signUp" element={<Signup />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/logIn" element={<LogIn />} />
-        <Route path="/login" element={<LogIn />} />
+        <Route path="/signUp" element={<Signup setUser={setUser} />} />
+        <Route path="/signup" element={<Signup setUser={setUser} />} />
+        <Route path="/logIn" element={<LogIn setUser={setUser} />} />
+        <Route path="/login" element={<LogIn setUser={setUser} />} />
         <Route path="/family" element={<Family onAddToCart={handleAddToCart} />} />
         <Route path="/men" element={<Men onAddToCart={handleAddToCart} />} />
         <Route path="/women" element={<Women onAddToCart={handleAddToCart} />} />
@@ -108,3 +123,4 @@ function App() {
 }
 
 export default App;
+

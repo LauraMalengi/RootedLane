@@ -4,9 +4,12 @@ import Footer from "../Footer/Footer";
 
 const products = [
   { id: 1, name: "guy in dark blue", price: 1500, image: "/Images/guy in dark blue.webp" },
-  
-  
+  { id: 2, name: "men in black", price: 1500, image: "/Images/men in black.jpg" },
+  { id: 3, name: "men in dark blue", price: 1500, image: "/Images/men in dark blue.jpg" },
+  { id: 4, name: "men in long slave", price: 1500, image: "/Images/men long slave .webp" },
+  { id: 5, name: "men in black", price: 1500, image: "/Images/men.jpg" },
 ];
+
 
 const Home = ({ addToCart }) => {
   const [likedItems, setLikedItems] = useState([]);

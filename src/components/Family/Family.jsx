@@ -8,7 +8,8 @@ const products = [
   { id: 3, name: "mom and daughter", price: 1500, image: "/Images/mom and daughter.jpeg" },
   { id: 4, name: "family with 2 kids", price: 3500, image: "/Images/family with2 kids.jpeg" },
   { id: 5, name: "Couple in black Attire", price: 1500, image: "/Images/shopping (2).webp" },
-  
+  { id: 6, name: "family in stunning outfits", price: 1500, image: "/Images/family in stunning outifts.jpg" },
+  { id: 7, name: "Family in White", price: 3500, image: "/Images/family in purple.jpg" },
 ];
 
 const Home = ({ addToCart }) => {

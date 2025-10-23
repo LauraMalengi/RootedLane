@@ -9,6 +9,9 @@ const Banner = () => {
         <div className="floating-element"></div>
         <div className="floating-element"></div>
         <div className="floating-element"></div>
+        <div className="floating-element"></div>
+        <div className="floating-element"></div>
+        <div className="floating-element"></div>
       </div>
       
       <div className="overlay">

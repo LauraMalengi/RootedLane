@@ -5,6 +5,9 @@ import Footer from "../Footer/Footer";
 const products = [
   { id: 1, name: "Kids Clothing", price: 800, image: "/Images/three kids.jpeg" },
   { id: 2, name: "two kids     ", price: 1000, image: "/Images/two kids.jpeg" },
+  { id: 3, name: "childern bng", price: 3500, image: "/Images/childern bng.jpg" },
+   { id:4, name: "childern in yellow", price: 1500, image: "/Images/childern in yellow.jpg" },
+   { id: 5, name: "girl in pink", price: 1500, image: "/Images/girl in pink.jpg" },
 ];
 
 const Home = ({ addToCart }) => {
