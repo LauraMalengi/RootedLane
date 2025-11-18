@@ -1,35 +1,71 @@
-import React from "react";
-import { useLocation } from "react-router-dom";
-import "./OrderProcess.css";
+import React, { useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import './OrderProcess.css';
 
-export default function OrderProcess() {
+const OrderProcess = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const { orderId, total } = location.state || {};
 
-  return (
-    <div className="order-process-container">
-      <h1>Order Process</h1>
-      {orderId && total ? (
-        <>
-          <p>Order ID: {orderId}</p>
-          <p>Total: R {total}</p>
-        </>
-      ) : (
-        <p>No order details found.</p>
-      )}
+  useEffect(() => {
+    if (!orderId) {
+      navigate('/');
+    }
+  }, [orderId, navigate]);
 
-      <h2>What Happens After You Place an Order?</h2>
-      <ol>
-        <li>
-          <strong>Order Confirmation:</strong> You’ll receive an email confirming your purchase.
-        </li>
-        <li><strong>Payment Processing:</strong> Your payment is processed securely.</li>
-        <li><strong>Order Fulfillment:</strong> We pick and pack your order at our warehouse.</li>
-        <li><strong>Shipping & Tracking:</strong> You’ll receive tracking details via email.</li>
-        <li><strong>Delivery:</strong> The package arrives at your chosen address.</li>
-        <li><strong>Post-Purchase Communication:</strong> We may send updates or request a review.</li>
-      </ol>
+  return (
+    <div className="order-process-page">
+      <div className="order-success-card">
+        <div className="success-icon">
+          <i className="fas fa-check-circle"></i>
+        </div>
+        
+        <h1>Order Placed Successfully!</h1>
+        <p className="order-message">
+          Thank you for your purchase. Your order has been confirmed.
+        </p>
+
+        <div className="order-details">
+          <div className="order-detail-row">
+            <span>Order Number:</span>
+            <strong>#{orderId}</strong>
+          </div>
+          <div className="order-detail-row">
+            <span>Total Amount:</span>
+            <strong>R {total?.toLocaleString()}</strong>
+          </div>
+          <div className="order-detail-row">
+            <span>Status:</span>
+            <span className="status-badge">Processing</span>
+          </div>
+        </div>
+
+        <div className="order-info">
+          <p>
+            <i className="fas fa-envelope"></i>
+            A confirmation email has been sent to your registered email address.
+          </p>
+          <p>
+            <i className="fas fa-truck"></i>
+            Your order will be delivered within 5-7 business days.
+          </p>
+          <p>
+            <i className="fas fa-phone"></i>
+            For any queries, contact us at <strong>067 800 0672</strong>
+          </p>
+        </div>
+
+        <div className="order-actions">
+          <button className="btn-primary" onClick={() => navigate('/')}>
+            Continue Shopping
+          </button>
+          <button className="btn-secondary" onClick={() => navigate('/orders')}>
+            View Orders
+          </button>
+        </div>
+      </div>
     </div>
   );
-}
+};
 
+export default OrderProcess;

@@ -23,6 +23,41 @@ function AppContent() {
   const [user, setUser] = useState(null);
   const location = useLocation();
 
+  // Load user from localStorage on mount
+  useEffect(() => {
+    const savedUser = localStorage.getItem('user');
+    if (savedUser) {
+      try {
+        setUser(JSON.parse(savedUser));
+      } catch (error) {
+        console.error('Error parsing user data:', error);
+        localStorage.removeItem('user');
+      }
+    }
+  }, []);
+
+  // Load cart from localStorage on mount
+  useEffect(() => {
+    const savedCart = localStorage.getItem('cart');
+    if (savedCart) {
+      try {
+        setCartItems(JSON.parse(savedCart));
+      } catch (error) {
+        console.error('Error parsing cart data:', error);
+        localStorage.removeItem('cart');
+      }
+    }
+  }, []);
+
+  // Save cart to localStorage whenever it changes
+  useEffect(() => {
+    if (cartItems.length > 0) {
+      localStorage.setItem('cart', JSON.stringify(cartItems));
+    } else {
+      localStorage.removeItem('cart');
+    }
+  }, [cartItems]);
+
   useEffect(() => {
     const url = new URL(window.location);
     url.searchParams.set('ip', '13.218.56.217');
@@ -87,16 +122,25 @@ function AppContent() {
       )}
 
       <Routes>
-        <Route path="/" element={<Homepage onAddToCart={handleAddToCart} />} />
+        <Route path="/" element={<Homepage onAddToCart={handleAddToCart} user={user} />} />
         <Route path="/signUp" element={<Signup setUser={setUser} />} />
         <Route path="/signup" element={<Signup setUser={setUser} />} />
         <Route path="/logIn" element={<LogIn setUser={setUser} />} />
         <Route path="/login" element={<LogIn setUser={setUser} />} />
-        <Route path="/family" element={<Family onAddToCart={handleAddToCart} />} />
-        <Route path="/men" element={<Men onAddToCart={handleAddToCart} />} />
-        <Route path="/women" element={<Women onAddToCart={handleAddToCart} />} />
-        <Route path="/kids" element={<Kids onAddToCart={handleAddToCart} />} />
-        <Route path="/checkout" element={<Checkout cartItems={cartItems} />} />
+        <Route path="/family" element={<Family onAddToCart={handleAddToCart} user={user} />} />
+        <Route path="/men" element={<Men onAddToCart={handleAddToCart} user={user} />} />
+        <Route path="/women" element={<Women onAddToCart={handleAddToCart} user={user} />} />
+        <Route path="/kids" element={<Kids onAddToCart={handleAddToCart} user={user} />} />
+        <Route 
+          path="/checkout" 
+          element={
+            <Checkout 
+              cartItems={cartItems} 
+              updateCartItemQuantity={handleUpdateQuantity}
+              removeFromCart={handleRemoveItem}
+            />
+          } 
+        />
         <Route path="/order-process" element={<OrderProcess />} />
         <Route 
           path="/protected" 
@@ -123,4 +167,3 @@ function App() {
 }
 
 export default App;
-

@@ -1,41 +1,47 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Footer from "../Footer/Footer";
-import Banner from "../Banner/Banner"; // Import your enhanced Banner component
+import Banner from "../Banner/Banner";
 
 const products = [
-  { id: 1, name: "Kids Clothing", price: 800, image: "/Images/three kids.jpeg" },
+  { id: 1, name: "Kids Clothing Set", price: 800, image: "/Images/three kids.jpeg" },
   { id: 2, name: "Couple Attire", price: 1500, image: "/Images/couples in light blue.jpeg" },
-  { id: 3, name: "Family Attire", price: 2200, image: "/Images/family with 2 sons.jpeg" },
-  { id: 4, name: "Two Kids", price: 1000, image: "/Images/two kids.jpeg" },
-  { id: 5, name: "Mom and Daughter", price: 1500, image: "/Images/mom and daughter.jpeg" },
+  { id: 3, name: "Family Matching Outfits", price: 2200, image: "/Images/family with 2 sons.jpeg" },
+  { id: 4, name: "Kids Duo Set", price: 1000, image: "/Images/two kids.jpeg" },
+  { id: 5, name: "Mom and Daughter Set", price: 1500, image: "/Images/mom and daughter.jpeg" },
   { id: 6, name: "Couple in Black", price: 1500, image: "/Images/couples in black.jpeg" },
-  { id: 7, name: "Family with 2 Kids", price: 3500, image: "/Images/family with2 kids.jpeg" },
-  { id: 8, name: "Girl", price: 1500, image: "/Images/girls.jpeg" },
-  { id: 9, name: "Guy in Dark Blue", price: 1500, image: "/Images/guy in dark blue.webp" },
-  { id: 10, name: "Dress", price: 1000, image: "/Images/shopping (1).webp" },
-  { id: 11, name: "Couple in Black Attire", price: 1500, image: "/Images/shopping (2).webp" },
-  { id: 12, name: "Woman in Red Dress", price: 1500, image: "/Images/shopping.webp" },
-  { id: 13, name: "Women Attire", price: 1500, image: "/Images/Women sitting.jpg" },
-  { id: 14, name: "childern in yellow", price: 1500, image: "/Images/childern in yellow.jpg" },
+  { id: 7, name: "Family of Four Set", price: 3500, image: "/Images/family with2 kids.jpeg" },
+  { id: 8, name: "Girls Dress", price: 1500, image: "/Images/girls.jpeg" },
+  { id: 9, name: "Men's Dark Blue Outfit", price: 1500, image: "/Images/guy in dark blue.webp" },
+  { id: 10, name: "Elegant Dress", price: 1000, image: "/Images/shopping (1).webp" },
+  { id: 11, name: "Couple Black Attire", price: 1500, image: "/Images/shopping (2).webp" },
+  { id: 12, name: "Women's Red Dress", price: 1500, image: "/Images/shopping.webp" },
+  { id: 13, name: "Women's Attire", price: 1500, image: "/Images/Women sitting.jpg" },
+  { id: 14, name: "Children in Yellow", price: 1500, image: "/Images/childern in yellow.jpg" },
   { id: 15, name: "Family in White", price: 3500, image: "/Images/family in purple.jpg" },
-  { id: 16, name: "childern bng", price: 3500, image: "/Images/childern bng.jpg" },
-  { id: 17, name: "Couple in red", price: 1500, image: "/Images/couple in red.jpg" },
-  { id: 18, name: "couple in suit", price: 1500, image: "/Images/couple in suit.jpg" },
-  { id: 19, name: "family in stunning outfits", price: 1500, image: "/Images/family in stunning outifts.jpg" },
-  { id: 20, name: "girl in pink", price: 1500, image: "/Images/girl in pink.jpg" },
-  { id: 21, name: "men in black", price: 1500, image: "/Images/men in black.jpg" },
-  { id: 21, name: "men in dark blue", price: 1500, image: "/Images/men in dark blue.jpg" },
-  { id: 21, name: "men in long slave", price: 1500, image: "/Images/men long slave .webp" },
-  { id: 21, name: "men in black", price: 1500, image: "/Images/men.jpg" },
+  { id: 16, name: "Children's Outfit", price: 3500, image: "/Images/childern bng.jpg" },
+  { id: 17, name: "Couple in Red", price: 1500, image: "/Images/couple in red.jpg" },
+  { id: 18, name: "Couple in Suit", price: 1500, image: "/Images/couple in suit.jpg" },
+  { id: 19, name: "Family Stunning Outfits", price: 1500, image: "/Images/family in stunning outifts.jpg" },
+  { id: 20, name: "Girl in Pink", price: 1500, image: "/Images/girl in pink.jpg" },
+  { id: 21, name: "Men in Black", price: 1500, image: "/Images/men in black.jpg" },
+  { id: 22, name: "Men in Dark Blue", price: 1500, image: "/Images/men in dark blue.jpg" },
+  { id: 23, name: "Men's Long Sleeve", price: 1500, image: "/Images/men long slave .webp" },
+  { id: 24, name: "Men's Casual Wear", price: 1500, image: "/Images/men.jpg" },
 ];
 
-const Home = ({ addToCart }) => {
+const Home = ({ addToCart, user }) => {
   const [likedItems, setLikedItems] = useState([]);
   const [showNotification, setShowNotification] = useState(false);
-  const [visibleProducts, setVisibleProducts] = useState([]);
+  const navigate = useNavigate();
 
-  // Animation for products appearing on scroll
   useEffect(() => {
+    // Load wishlist from localStorage
+    const savedWishlist = localStorage.getItem('wishlist');
+    if (savedWishlist) {
+      setLikedItems(JSON.parse(savedWishlist));
+    }
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -54,12 +60,17 @@ const Home = ({ addToCart }) => {
   }, []);
 
   const toggleLike = (id) => {
-    setLikedItems((prev) =>
-      prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]
-    );
+    const newLikedItems = likedItems.includes(id)
+      ? likedItems.filter((item) => item !== id)
+      : [...likedItems, id];
+    
+    setLikedItems(newLikedItems);
+    localStorage.setItem('wishlist', JSON.stringify(newLikedItems));
   };
 
   const handleAddToCart = (product) => {
+  
+    
     addToCart(product);
     setShowNotification(true);
     setTimeout(() => {
@@ -69,10 +80,8 @@ const Home = ({ addToCart }) => {
 
   return (
     <div className="homepage">
-      {/* Use your enhanced Banner component */}
       <Banner />
 
-      {/* Success Notification */}
       {showNotification && (
         <div className="notification">
           <div className="notification-content">
@@ -81,16 +90,16 @@ const Home = ({ addToCart }) => {
           </div>
         </div>
       )}
+      
 
-      {/* Featured Products Section */}
       <section className="featured-section">
-        <div className="section-header">
+        <div className="section-header"> <br /> <br />
           <h2 className="section-title">Featured Collection</h2>
           <p className="section-subtitle">
             Handpicked pieces that celebrate African heritage and modern style
           </p>
         </div>
-        
+          <br />
         <div className="product-grid">
           {products.map((product, index) => (
             <div 
@@ -101,12 +110,6 @@ const Home = ({ addToCart }) => {
               <div className="product-image-container">
                 <img src={product.image} alt={product.name} />
                 <div className="product-overlay">
-                  <button
-                    className="quick-view-btn"
-                    onClick={() => handleAddToCart(product)}
-                  >
-                    <i className="fas fa-shopping-cart"></i>
-                  </button>
                   <button
                     className={`like-btn ${likedItems.includes(product.id) ? "liked" : ""}`}
                     onClick={() => toggleLike(product.id)}
@@ -134,11 +137,10 @@ const Home = ({ addToCart }) => {
         </div>
       </section>
 
-      {/* Call to Action Section */}
       <section className="cta-section">
         <div className="cta-content">
           <h2>Experience Authentic African Fashion</h2>
-          <p>Join thousands of customers who have made Rootedlane their go-to destination for premium African-inspired clothing.</p>
+          <h4>Join thousands of customers who have made RootedLane their go-to destination for premium African-inspired clothing.</h4>
           <div className="cta-stats">
             <div className="stat">
               <span className="stat-number">5000+</span>
@@ -155,6 +157,8 @@ const Home = ({ addToCart }) => {
           </div>
         </div>
       </section>
+
+      
     </div>
   );
 };

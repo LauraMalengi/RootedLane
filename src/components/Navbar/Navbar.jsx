@@ -24,8 +24,18 @@ const Navbar = ({ cartCount = 0, onCartClick, user, setUser }) => {
   };
 
   const handleLogout = () => {
-    setUser(null); // clear user
-    navigate("/login");
+    setUser(null);
+    localStorage.removeItem('user');
+    navigate("/");
+  };
+
+  const handleCartClick = () => {
+    if (!user) {
+      alert("Please sign in to view your cart");
+      navigate("/SignUp");
+      return;
+    }
+    onCartClick();
   };
 
   return (
@@ -33,45 +43,57 @@ const Navbar = ({ cartCount = 0, onCartClick, user, setUser }) => {
       <div className="navbar-container">
         <div className="navbar-logo">
           <Link to="/" onClick={closeMobileMenu}>
-            Rootedlane
+            RootedLane
           </Link>
         </div>
 
-        <ul className="navbar-links">
+        <ul className={`navbar-links ${isMobileMenuOpen ? "mobile-open" : ""}`}>
           <li><Link to="/" onClick={closeMobileMenu}>Home</Link></li>
-          <li><Link to="/women" onClick={closeMobileMenu}>Women</Link></li>
-          <li><Link to="/men" onClick={closeMobileMenu}> Men</Link></li>
-          <li><Link to="/kids" onClick={closeMobileMenu}>Kids</Link></li>
-          <li><Link to="/family" onClick={closeMobileMenu}>Family</Link></li>
-          <li><Link to="/checkout" onClick={closeMobileMenu}>Checkout</Link></li>
+           <li className="dropdown">
+  <span className="dropbtn">Products ▾</span>
+  <div className="dropdown-content">
+    <Link to="/products/men" onClick={closeMobileMenu}>Men</Link>
+    <Link to="/products/women" onClick={closeMobileMenu}>Women</Link>
+    <Link to="/products/kids" onClick={closeMobileMenu}>Kids</Link>
+    <Link to="/products/outlet" onClick={closeMobileMenu}>Outlet</Link>
+   </div>
+   </li>
+
+          <li><Link to="/About" onClick={closeMobileMenu}>About</Link></li>
+          <li><Link to="/Contact" onClick={closeMobileMenu}>Contact</Link></li>
         </ul>
 
-        <div className="navbar-user">
+        <div className="navbar-right">
           {user ? (
             <>
-              <span className="welcome">Hi, {user.name || user.email} </span>
-              <button onClick={handleLogout} className="btn-logout"> Logout</button>
+              <span className="welcome">Hi, {user.name || user.email}</span>
+              <button onClick={handleLogout} className="btn-logout">Logout</button>
             </>
           ) : (
-            <Link to="/login" className="btn-login"> Login</Link>
+            <Link to="/SignUp" className="btn-login">SignUp</Link>
           )}
-        </div>
 
-        <div className="navbar-cart" onClick={onCartClick}>
-          <span role="img" aria-label="Shopping Cart" style={{ fontSize: "1.5em" }}>🛒</span>
-          {cartCount > 0 && (
-            <span className="cart-badge">
-              {cartCount > 99 ? "99+" : cartCount}
-            </span>
-          )}
+          <div className="navbar-cart" onClick={handleCartClick}>
+            <span role="img" aria-label="Shopping Cart" style={{ fontSize: "1.5em" }}>🛒</span>
+            {cartCount > 0 && (
+              <span className="cart-badge">
+                {cartCount > 99 ? "99+" : cartCount}
+              </span>
+            )}
+          </div>
         </div>
 
         <div className="mobile-menu-toggle" onClick={toggleMobileMenu}>
+          <span></span>
+          <span></span>
           <span></span>
         </div>
       </div>
     </nav>
   );
 };
+
+
+
 
 export default Navbar;

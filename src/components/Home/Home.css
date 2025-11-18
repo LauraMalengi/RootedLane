@@ -1,4 +1,3 @@
-/* Enhanced Home.css - Replace your existing Home.css with this file */
 .homepage {
   width: 100%;
   margin: 0;
@@ -10,7 +9,7 @@
   min-height: 100vh;
 }
 
-/* Section Styling */
+
 .featured-section {
   max-width: 1400px;
   margin: 0 auto;
@@ -60,7 +59,7 @@
   font-weight: 400;
 }
 
-/* Enhanced Product Grid */
+
 .product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -68,7 +67,7 @@
   padding: 1rem 0;
 }
 
-/* Beautiful Product Cards */
+
 .product-card {
   background: #ffffff;
   border-radius: 20px;
@@ -112,7 +111,7 @@
     0 0 0 1px rgba(102, 126, 234, 0.1);
 }
 
-/* Product Image Container */
+
 .product-image-container {
   position: relative;
   width: 100%;
@@ -133,7 +132,7 @@
   transform: scale(1.08);
 }
 
-/* Product Overlay */
+
 .product-overlay {
   position: absolute;
   top: 0;
@@ -156,7 +155,7 @@
   opacity: 1;
 }
 
-/* Overlay Buttons */
+
 .quick-view-btn,
 .product-overlay .like-btn {
   width: 50px;
@@ -187,7 +186,7 @@
   color: white;
 }
 
-/* Product Info */
+
 .product-info {
   padding: 1.5rem;
   text-align: center;
@@ -209,7 +208,7 @@
   letter-spacing: 0.5px;
 }
 
-/* Add to Cart Button */
+
 .add-to-cart-btn {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
@@ -238,7 +237,7 @@
   transform: translateY(0);
 }
 
-/* Enhanced Notification */
+
 .notification {
   position: fixed;
   top: 100px;
@@ -278,7 +277,7 @@
   }
 }
 
-/* Call to Action Section */
+
 .cta-section {
   background: linear-gradient(135deg, 
     rgba(102, 126, 234, 0.05) 0%, 
@@ -340,7 +339,7 @@
   font-weight: 500;
 }
 
-/* Responsive Design */
+
 @media (max-width: 1024px) {
   .featured-section {
     padding: 3rem 1.5rem;

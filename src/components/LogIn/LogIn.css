@@ -30,7 +30,6 @@
   margin-bottom: 1.5rem;
 }
 
-
 .input-group {
   margin-bottom: 1rem;
 }
@@ -47,8 +46,42 @@
   border: none;
   border-radius: 8px;
   font-size: 1rem;
+  background: rgba(255, 255, 255, 0.9);
 }
 
+/* Password input container */
+.password-input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-input-container input {
+  width: 100%;
+  padding-right: 45px; /* Space for eye icon */
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.toggle-password {
+  position: absolute;
+  right: 12px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  border-radius: 50%;
+}
+
+.toggle-password:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
 
 .options {
   display: flex;
@@ -66,7 +99,6 @@
   text-decoration: underline;
 }
 
-
 .btn-primary {
   width: 100%;
   padding: 12px;
@@ -82,6 +114,10 @@
   background: #357ab8;
 }
 
+.btn-primary:disabled {
+  background: #6c757d;
+  cursor: not-allowed;
+}
 
 .social-login {
   margin-top: 2rem;
@@ -103,6 +139,7 @@
   padding: 10px 15px;
   border-radius: 8px;
   cursor: pointer;
+  color: #fff;
 }
 
 .social-button img {
@@ -114,10 +151,53 @@
   background: rgba(255, 255, 255, 0.5);
 }
 
+/* Message styles */
+.message {
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-weight: 500;
+}
+
+.message.success {
+  background: rgba(76, 175, 80, 0.3);
+  color: #c8e6c9;
+  border: 1px solid rgba(76, 175, 80, 0.5);
+}
+
+.message.error {
+  background: rgba(244, 67, 54, 0.3);
+  color: #ffcdd2;
+  border: 1px solid rgba(244, 67, 54, 0.5);
+}
+
+.muted {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.muted a {
+  color: #4a90e2;
+  text-decoration: none;
+}
+
+.muted a:hover {
+  text-decoration: underline;
+}
+
+.or-text {
+  margin-bottom: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+}
 
 @media (max-width: 768px) {
   .overlay-form {
     width: 90%;
     padding: 1.5rem;
+  }
+  
+  .social-buttons {
+    flex-direction: column;
   }
 }
