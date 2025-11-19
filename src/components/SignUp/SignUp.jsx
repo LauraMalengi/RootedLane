@@ -26,7 +26,7 @@ const SignUp = () => {
     setMessage('');
 
     try {
-      const response = await fetch('http://44.223.38.245:3000/api/users/signup', {
+      const response = await fetch('http://34.238.193.167:3000/api/users/signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
