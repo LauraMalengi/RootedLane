@@ -25,7 +25,7 @@ const LogIn = ({ setUser }) => {  // ← Accept setUser prop from App.jsx
     setMessage('');
 
     try {
-      const response = await fetch('http://34.238.193.167:3000/api/users/login', {
+      const response = await fetch('http://98.95.166.176:3000/api/users/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -52,10 +52,9 @@ const Navbar = ({ cartCount = 0, onCartClick, user, setUser }) => {
            <li className="dropdown">
   <span className="dropbtn">Products ▾</span>
   <div className="dropdown-content">
-    <Link to="/products/men" onClick={closeMobileMenu}>Men</Link>
-    <Link to="/products/women" onClick={closeMobileMenu}>Women</Link>
-    <Link to="/products/kids" onClick={closeMobileMenu}>Kids</Link>
-    <Link to="/products/outlet" onClick={closeMobileMenu}>Outlet</Link>
+    <Link to="Men" onClick={closeMobileMenu}>Men</Link>
+    <Link to="Women" onClick={closeMobileMenu}>Women</Link>
+    <Link to="Kids" onClick={closeMobileMenu}>Kids</Link>
    </div>
    </li>
 
