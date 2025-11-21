@@ -58,8 +58,8 @@ const Navbar = ({ cartCount = 0, onCartClick, user, setUser }) => {
    </div>
    </li>
 
-          <li><Link to="/About" onClick={closeMobileMenu}>About</Link></li>
-          <li><Link to="/Contact" onClick={closeMobileMenu}>Contact</Link></li>
+          <li><Link to="/About Us" onClick={closeMobileMenu}>About Us</Link></li>
+          <li><Link to="/Contact Us" onClick={closeMobileMenu}>Contact Us</Link></li>
         </ul>
 
         <div className="navbar-right">

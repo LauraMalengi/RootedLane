@@ -16,6 +16,8 @@ import Kids from "./components/Kids/Kids";
 import Cart from "./components/cart/Cart";
 import Checkout from "./components/checkout/Checkout";
 import OrderProcess from "./components/OrderProcess/Orderprocess";
+import AboutUs from "./components/About/About Us";
+import ContactUs from "./components/Contact/Contact Us";
 
 function AppContent() {
   const [cartItems, setCartItems] = useState([]);
