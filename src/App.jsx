@@ -16,8 +16,9 @@ import Kids from "./components/Kids/Kids";
 import Cart from "./components/cart/Cart";
 import Checkout from "./components/checkout/Checkout";
 import OrderProcess from "./components/OrderProcess/Orderprocess";
-import AboutUs from "./components/About/About Us";
-import ContactUs from "./components/Contact/Contact Us";
+import AboutUs from "./components/About/AboutUs";
+import ContactUs from "./components/Contact/ContactUs";
+import Wishlist from './components/wishlist/Wishlist';
 
 function AppContent() {
   const [cartItems, setCartItems] = useState([]);
@@ -133,6 +134,11 @@ function AppContent() {
         <Route path="/men" element={<Men onAddToCart={handleAddToCart} user={user} />} />
         <Route path="/women" element={<Women onAddToCart={handleAddToCart} user={user} />} />
         <Route path="/kids" element={<Kids onAddToCart={handleAddToCart} user={user} />} />
+        <Route path="/about" element={<AboutUs />} />
+        <Route path="/contact" element={<ContactUs />} />
+        <Route path="/Wishlist" element={<Wishlist onAddToCart={handleAddToCart} user={user} />} />
+         
+
         <Route 
           path="/checkout" 
           element={

@@ -6,7 +6,6 @@ const products = [
   { id: 1, name: "Kids Clothing Set", price: 800, image: "/Images/three kids.jpeg" },
   { id: 2, name: "Couple Attire", price: 1500, image: "/Images/couples in light blue.jpeg" },
   { id: 3, name: "Family Matching Outfits", price: 2200, image: "/Images/family with 2 sons.jpeg" },
-  // Add all products here...
 ];
 
 const Wishlist = ({ addToCart, user }) => {

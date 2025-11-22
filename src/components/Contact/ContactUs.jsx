@@ -1,5 +1,5 @@
   import React, { useState } from "react";
-  import "./Contact Us.css";
+  import "./ContactUs.css";
 
   export default function Contact() {
     const [form, setForm] = useState({
@@ -19,7 +19,7 @@
         alert("Please fill in Name, Email and Message");
         return false;
       }
-      // basic email regex
+      
       if (!/^\S+@\S+\.\S+$/.test(form.email)) {
         alert("Please enter a valid email address");
         return false;
@@ -41,8 +41,7 @@
         if (res.ok && data.success) {
           alert("Thank you! Your message has been delivered.");
           setForm({ name: "", email: "", phone: "", message: "" }); // clear
-          // redirect to thank you page if you want:
-          // window.location.href = "/thankyou";
+          
         } else {
           alert(data.message || "Failed to send message. Try again.");
         }
@@ -72,7 +71,7 @@
             </div>
 
             <div className="form-row">
-              <label>Phone (optional)</label>
+              <label>Phone </label>
               <input name="phone" value={form.phone} onChange={onChange} type="tel" placeholder="+27 71 000 0000" />
             </div>
 

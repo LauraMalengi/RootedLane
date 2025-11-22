@@ -1,4 +1,5 @@
 import React from "react";
+import "./AboutUs.css";
 
 export default function About() {
   return (
@@ -9,8 +10,8 @@ export default function About() {
         <div className="relative bg-slate-700 overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-r from-slate-700/40 to-transparent z-10"></div>
           <img
-            src="/Images/myfamily.jpg"
-            alt="Professional woman smiling"
+            src="/Images/My family.jpg"
+            alt="family picture"
             className="w-full h-full object-cover"
           />
         </div>
@@ -18,7 +19,7 @@ export default function About() {
         {/* Content Section */}
         <div className="bg-white p-12 flex flex-col justify-center">
           <div className="mb-3 text-slate-600 text-sm font-semibold tracking-widest uppercase">
-            Innovative Business
+            RootedLane story
           </div>
           
           <h1 className="text-5xl font-bold text-slate-600 mb-6">
@@ -38,12 +39,6 @@ export default function About() {
         </div>
       </div>
       
-      {/* Credit */}
-      <div className="absolute bottom-4 left-0 right-0 text-center">
-        <p className="text-white text-sm">
-          Image from <span className="text-pink-300">Freepik</span>
-        </p>
-      </div>
     </div>
   );
 }
