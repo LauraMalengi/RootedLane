@@ -130,13 +130,13 @@ function AppContent() {
         <Route path="/signup" element={<Signup setUser={setUser} />} />
         <Route path="/logIn" element={<LogIn setUser={setUser} />} />
         <Route path="/login" element={<LogIn setUser={setUser} />} />
-        <Route path="/family" element={<Family onAddToCart={handleAddToCart} user={user} />} />
-        <Route path="/men" element={<Men onAddToCart={handleAddToCart} user={user} />} />
-        <Route path="/women" element={<Women onAddToCart={handleAddToCart} user={user} />} />
-        <Route path="/kids" element={<Kids onAddToCart={handleAddToCart} user={user} />} />
+        <Route path="/family" element={<Family addToCart={handleAddToCart} user={user} />} />
+        <Route path="/men" element={<Men addToCart={handleAddToCart} user={user} />} />
+        <Route path="/women" element={<Women addToCart={handleAddToCart} user={user} />} />
+        <Route path="/kids" element={<Kids addToCart={handleAddToCart} user={user} />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/contact" element={<ContactUs />} />
-        <Route path="/Wishlist" element={<Wishlist onAddToCart={handleAddToCart} user={user} />} />
+        <Route path="/Wishlist" element={<Wishlist addToCart={handleAddToCart} user={user} />} />
          
 
         <Route 

@@ -1,86 +1,139 @@
-
 .contact-page {
+  min-height: 100vh;
   display: flex;
-  justify-content: center;
   align-items: center;
-  padding: 40px 16px;
-  background: #f7f8fb;
-  min-height: calc(100vh - 120px);
+  justify-content: center;
+  padding: 2rem;
+  background-color: #f5f5f5;
 }
 
 .contact-card {
-  width: 100%;
-  max-width: 760px;
-  background: #fff;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  background: white;
   border-radius: 12px;
-  padding: 28px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 3rem;
+  max-width: 600px;
+  width: 100%;
 }
 
 .contact-card h2 {
-  margin: 0 0 8px;
-  font-size: 24px;
+  margin: 0 0 0.5rem 0;
+  font-size: 2rem;
+  color: #333;
+  text-align: center;
 }
 
 .contact-sub {
-  margin: 0 0 20px;
+  text-align: center;
   color: #666;
+  margin-bottom: 2rem;
 }
 
-.contact-form .form-row {
+.contact-form {
   display: flex;
   flex-direction: column;
-  margin-bottom: 14px;
+  gap: 1.5rem;
 }
 
-.contact-form label {
-  font-size: 13px;
-  margin-bottom: 6px;
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-row label {
+  font-weight: 600;
   color: #333;
+  font-size: 0.95rem;
 }
 
-.contact-form input,
-.contact-form textarea {
-  padding: 10px 12px;
-  border-radius: 8px;
-  border: 1px solid #e2e6ef;
-  background: #fff;
-  font-size: 14px;
+.form-row input,
+.form-row textarea {
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border-color 0.3s;
+}
+
+.form-row input:focus,
+.form-row textarea:focus {
   outline: none;
+  border-color: #007bff;
 }
 
-.contact-form input:focus,
-.contact-form textarea:focus {
-  box-shadow: 0 0 0 3px rgba(59,130,246,0.08);
-  border-color: #3b82f6;
+.form-row textarea {
+  resize: vertical;
+  min-height: 120px;
 }
 
 .form-actions {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
+  margin-top: 1rem;
 }
 
 .btn-primary {
-  background: #111827;
+  background-color: #007bff;
   color: white;
-  padding: 10px 18px;
-  border-radius: 8px;
+  padding: 0.875rem 2.5rem;
   border: none;
-  cursor: pointer;
+  border-radius: 6px;
+  font-size: 1rem;
   font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: #0056b3;
+  transform: translateY(-1px);
 }
 
 .btn-primary:disabled {
-  opacity: 0.6;
+  background-color: #6c757d;
   cursor: not-allowed;
+  opacity: 0.6;
 }
 
-/* Responsive */
-@media (max-width: 600px) {
+/* Success Message Styles */
+.success-message {
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.success-message h2 {
+  color: #28a745;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.success-message p {
+  color: #666;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.success-message .btn-primary {
+  margin-top: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
   .contact-card {
-    padding: 18px;
+    padding: 2rem 1.5rem;
   }
-  .form-actions {
-    justify-content: center;
+
+  .contact-card h2 {
+    font-size: 1.75rem;
+  }
+
+  .success-message h2 {
+    font-size: 2rem;
   }
 }
