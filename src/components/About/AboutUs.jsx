@@ -37,10 +37,6 @@ export default function About() {
             both people and the planet. Join us on this journey as we continue to grow and evolve, always keeping our roots firmly 
             planted in family values and exceptional service.
           </p>
-          
-          <button className="bg-slate-500 hover:bg-slate-600 text-white font-semibold py-3 px-8 tracking-widest uppercase text-sm transition-colors duration-300 self-start">
-            Learn More
-          </button>
         </div>
       </div>
       

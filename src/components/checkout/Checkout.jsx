@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Checkout.css"; 
 
-const Checkout = ({ cartItems = [], updateCartItemQuantity, removeFromCart }) => {
+const Checkout = ({ cartItems = [], updateCartItemQuantity, removeFromCart, clearCart }) => {
   const navigate = useNavigate();
   const [orderId] = useState(Math.floor(Math.random() * 100000));
   const [formData, setFormData] = useState({
@@ -28,32 +28,34 @@ const Checkout = ({ cartItems = [], updateCartItemQuantity, removeFromCart }) =>
   };
 
   const handlePlaceOrder = (e) => {
-    e.preventDefault();
-    
-    if (cartItems.length === 0) {
-      alert("Your cart is empty!");
-      return;
-    }
+  e.preventDefault();
+  
+  if (cartItems.length === 0) {
+    alert("Your cart is empty!");
+    return;
+  }
 
-    // Save order to localStorage
-    const order = {
-      orderId,
-      items: cartItems,
-      total,
-      date: new Date().toISOString(),
-      ...formData
-    };
-    
-    const orders = JSON.parse(localStorage.getItem('orders') || '[]');
-    orders.push(order);
-    localStorage.setItem('orders', JSON.stringify(orders));
-
-    // Clear cart
-    localStorage.removeItem('cart');
-    
-    // Navigate to order confirmation
-    navigate("/order-process", { state: { orderId, total } });
+  // Save order to localStorage
+  const order = {
+    orderId,
+    items: cartItems,
+    total,
+    date: new Date().toISOString(),
+    ...formData
   };
+  
+  const orders = JSON.parse(localStorage.getItem('orders') || '[]');
+  orders.push(order);
+  localStorage.setItem('orders', JSON.stringify(orders));
+
+  // ✅ Call the clearCart prop function
+  if (clearCart) {
+    clearCart();
+  }
+  
+  // Navigate to order confirmation
+  navigate("/order-process", { state: { orderId, total } });
+};
 
   if (cartItems.length === 0) {
     return (
@@ -91,7 +93,7 @@ const Checkout = ({ cartItems = [], updateCartItemQuantity, removeFromCart }) =>
               </div>
               <div className="form-row">
                 <input 
-                  type="tel" 
+                  type="number" 
                   name="phone"
                   value={formData.phone}
                   onChange={handleInputChange}
@@ -119,7 +121,7 @@ const Checkout = ({ cartItems = [], updateCartItemQuantity, removeFromCart }) =>
                   required 
                 />
                 <input 
-                  type="text" 
+                  type="number" 
                   name="postalCode"
                   value={formData.postalCode}
                   onChange={handleInputChange}
@@ -133,7 +135,7 @@ const Checkout = ({ cartItems = [], updateCartItemQuantity, removeFromCart }) =>
               <h3><i className="fas fa-credit-card"></i> Payment Details</h3>
               <div className="form-row">
                 <input 
-                  type="text" 
+                  type="Number" 
                   name="cardNumber"
                   value={formData.cardNumber}
                   onChange={handleInputChange}
@@ -153,7 +155,7 @@ const Checkout = ({ cartItems = [], updateCartItemQuantity, removeFromCart }) =>
                   required 
                 />
                 <input 
-                  type="text" 
+                  type="Number" 
                   name="cvv"
                   value={formData.cvv}
                   onChange={handleInputChange}

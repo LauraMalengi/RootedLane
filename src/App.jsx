@@ -27,7 +27,7 @@ function AppContent() {
   const [user, setUser] = useState(null);
   const location = useLocation();
 
-  // Load user from localStorage on mount
+  
   useEffect(() => {
     const savedUser = localStorage.getItem('user');
     if (savedUser) {
@@ -40,7 +40,7 @@ function AppContent() {
     }
   }, []);
 
-  // Load cart from localStorage on mount
+
   useEffect(() => {
     const savedCart = localStorage.getItem('cart');
     if (savedCart) {
@@ -53,7 +53,7 @@ function AppContent() {
     }
   }, []);
 
-  // Save cart to localStorage whenever it changes
+
   useEffect(() => {
     if (cartItems.length > 0) {
       localStorage.setItem('cart', JSON.stringify(cartItems));
@@ -71,6 +71,11 @@ function AppContent() {
   const hideNavAndFooter = ["/login", "/signin", "/signup", "/logIn", "/signUp"].includes(
     location.pathname.toLowerCase()
   );
+
+  const clearCart = () => {
+    setCartItems([]);
+    localStorage.removeItem('cart');
+  };
 
   const handleAddToCart = (product) => {
     const existingItem = cartItems.find((item) => item.id === product.id);
@@ -140,16 +145,18 @@ function AppContent() {
         <Route path="/Wishlist" element={<Wishlist addToCart={handleAddToCart} user={user} />} />
         <Route path="/Collection" element={<Collection />} />
 
-        <Route 
-          path="/checkout" 
-          element={
-            <Checkout 
-              cartItems={cartItems} 
-              updateCartItemQuantity={handleUpdateQuantity}
-              removeFromCart={handleRemoveItem}
-            />
-          } 
-        />
+      <Route 
+       path="/checkout" 
+      element={
+      <Checkout 
+      cartItems={cartItems} 
+      updateCartItemQuantity={handleUpdateQuantity}
+      removeFromCart={handleRemoveItem}
+      clearCart={clearCart}    // ✅ pass it here
+      />
+      } 
+     />
+
         <Route path="/order-process" element={<OrderProcess />} />
         <Route 
           path="/protected" 

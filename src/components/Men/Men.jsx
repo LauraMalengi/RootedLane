@@ -2,12 +2,11 @@ import React, { useState, useEffect } from "react";
 import "./men.css";
 
 const products = [
-  { id: 1, name: "guy in dark blue", price: 1500, image: "/Images/guy in dark blue.webp" },
-  { id: 2, name: "men in black", price: 1500, image: "/Images/men in black.jpg" },
-  { id: 3, name: "men in dark blue", price: 1500, image: "/Images/men in dark blue.jpg" },
-  { id: 4, name: "men in long slave", price: 1500, image: "/Images/men long slave .webp" },
-  { id: 5, name: "men in black", price: 1500, image: "/Images/men.jpg" },
-  { id: 6, name: "Men's African suit", price: 2000, image: "/Images/Men's African suit.png" },
+  { id: 1, name: "Men's Dark Blue Outfit", price: 1500, image: "/Images/guy in dark blue.webp" },
+  { id: 2, name: "Men's African outfit", price: 1500, image: "/Images/men in black.jpg" },
+  { id: 3, name: "nigerian's traditional outfit", price: 1500, image: "/Images/men in dark blue.jpg" },
+  { id: 4, name: " Men's long slave shirt", price: 600, image: "/Images/men long slave .webp" },
+  { id: 5, name: "Men's Casual Wear", price: 1500, image: "/Images/men.jpg" },
 ];
 
 const Men = ({ addToCart }) => {

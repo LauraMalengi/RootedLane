@@ -4,7 +4,7 @@ import Footer from "../Footer/Footer";
 
 
 const products = [
-  { id: 1, name: "girl", price: 1500, image: "/Images/girls.jpeg" },
+  { id: 1, name: "African ladies dress", price: 1000, image: "/Images/girls.jpeg" },
   { id: 2, name: "dress", price: 1000, image: "/Images/shopping (1).webp" },
   { id: 3, name: "woman in red dress", price: 1500, image: "/Images/shopping.webp" },
   { id: 4, name: "Xhosa Women's Attire", price: 1500, image: "/Images/Women sitting.jpg" },
