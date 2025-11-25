@@ -59,9 +59,9 @@ const OrderProcess = () => {
           <button className="btn-primary" onClick={() => navigate('/')}>
             Continue Shopping
           </button>
-          <button className="btn-secondary" onClick={() => navigate('/orders')}>
+          {/* <button className="btn-secondary" onClick={() => navigate('/orders')}>
             View Orders
-          </button>
+          </button> */}
         </div>
       </div>
     </div>
