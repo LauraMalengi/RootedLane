@@ -7,6 +7,7 @@ const products = [
   { id: 3, name: "childern bng", price: 3500, image: "/Images/childern bng.jpg" },
   { id: 4, name: "childern in yellow", price: 1500, image: "/Images/childern in yellow.jpg" },
   { id: 5, name: "girl in pink", price: 1500, image: "/Images/girl in pink.jpg" },
+  { id: 6, name: "Native african Style for kids", price: 2000, image: "/Images/Native african Style for kids.png" },
 ];
 
 const Kids = ({ onAddToCart }) => {
@@ -45,7 +46,7 @@ const Kids = ({ onAddToCart }) => {
                 className="add-to-cart-btn"
                 onClick={() => onAddToCart(product)}
               >
-                Add to Cart
+                AddToCart
               </button>
 
               <button

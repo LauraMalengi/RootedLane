@@ -7,8 +7,11 @@ const products = [
   { id: 1, name: "girl", price: 1500, image: "/Images/girls.jpeg" },
   { id: 2, name: "dress", price: 1000, image: "/Images/shopping (1).webp" },
   { id: 3, name: "woman in red dress", price: 1500, image: "/Images/shopping.webp" },
-  { id: 4, name: "women Attire", price: 1500, image: "/Images/Women sitting.jpg" },
-  
+  { id: 4, name: "Xhosa Women's Attire", price: 1500, image: "/Images/Women sitting.jpg" },
+  { id: 5, name: "Modern Indian Clothing", price: 2000, image: "/Images/Modern Indian Clothing.png" },
+  { id: 6, name: "Indian Traditional dress", price: 2500, image: "/Images/Indian Traditional dress.png" },
+  { id: 7, name: "Igbo Traditional Clothing", price: 3000, image: "/Images/Igbo Traditional Clothing.png" },
+  { id: 8, name: "Flower Floral Africa dress", price: 3500, image: "/Images/Flower Floral Africa dress.png" },
 ];
 
 const Home = ({ addToCart }) => {
@@ -39,7 +42,7 @@ const Home = ({ addToCart }) => {
                   className="add-to-cart-btn"
                   onClick={() => addToCart(product)}
                 >
-                  Add to Cart
+                  AddToCart
                 </button>
 
                 <button

@@ -7,6 +7,7 @@ const products = [
   { id: 3, name: "men in dark blue", price: 1500, image: "/Images/men in dark blue.jpg" },
   { id: 4, name: "men in long slave", price: 1500, image: "/Images/men long slave .webp" },
   { id: 5, name: "men in black", price: 1500, image: "/Images/men.jpg" },
+  { id: 6, name: "Men's African suit", price: 2000, image: "/Images/Men's African suit.png" },
 ];
 
 const Men = ({ addToCart }) => {
@@ -42,7 +43,7 @@ const Men = ({ addToCart }) => {
                 className="add-to-cart-btn"
                 onClick={() => addToCart(product)}
               >
-                Add to Cart
+                AddToCart
               </button>
               <button
                 className={`wishlist-btn ${likedItems.includes(product.id) ? "liked" : ""}`}

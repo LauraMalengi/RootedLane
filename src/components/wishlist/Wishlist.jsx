@@ -27,6 +27,14 @@ const products = [
   { id: 22, name: "Men in Dark Blue", price: 1500, image: "/Images/men in dark blue.jpg" },
   { id: 23, name: "Men's Long Sleeve", price: 1500, image: "/Images/men long slave .webp" },
   { id: 24, name: "Men's Casual Wear", price: 1500, image: "/Images/men.jpg" },
+  { id: 25, name: "Modern Indian Clothing", price: 2000, image: "/Images/Modern Indian Clothing.png" },
+  { id: 26, name: "Indian Traditional dress", price: 2500, image: "/Images/Indian Traditional dress.png" },
+  { id: 27, name: "Igbo Traditional Clothing", price: 3000, image: "/Images/Igbo Traditional Clothing.png" },
+  { id: 28, name: "Flower Floral Africa dress", price: 3500, image: "/Images/Flower Floral Africa dress.png" },
+  { id: 29, name: "South African Couples in Matching Wedding Attire", price: 3000, image: "/Images/South African Couples in Matching Wedding Attire.png" },
+  { id: 30, name: "African wedding attire", price: 800, image: "/Images/African wedding attirs.png" },
+  { id: 31, name: "African clothing family set", price: 3000, image: "/Images/African clothing family set.png" },
+  { id: 6, name: "Native african Style for kids", price: 2000, image: "/Images/Native african Style for kids.png" },
 ];
 
 const Wishlist = ({ addToCart, user }) => {

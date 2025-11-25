@@ -27,13 +27,14 @@ const Banner = () => {
             <i className="fas fa-shopping-bag"></i>
             Shop Now
           </Link>
-          <Link to="/family" className="cta-button secondary">
+          <Link to="/Collection" className="cta-button secondary">
             <i className="fas fa-heart"></i>
             Explore Collection
           </Link>
+    
         </div>
       </div>
-    </section>
+    </section>  
   );
 };
 

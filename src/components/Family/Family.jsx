@@ -9,6 +9,9 @@ const products = [
   { id: 5, name: "Couple in black Attire", price: 1500, image: "/Images/shopping (2).webp" },
   { id: 6, name: "family in stunning outfits", price: 1500, image: "/Images/family in stunning outifts.jpg" },
   { id: 7, name: "Family in White", price: 3500, image: "/Images/family in purple.jpg" },
+  { id: 9, name: "South African Couples in Matching Wedding Attire", price: 3000, image: "/Images/South African Couples in Matching Wedding Attire.png" },
+  { id: 10, name: "African wedding attire", price: 800, image: "/Images/African wedding attirs.png" },
+  { id: 11, name: "African clothing family set", price: 3000, image: "/Images/African clothing family set.png" },
 ];
 
 const Family = ({ addToCart }) => {
@@ -44,7 +47,7 @@ const Family = ({ addToCart }) => {
                 className="add-to-cart-btn"
                 onClick={() => addToCart(product)}
               >
-                Add to Cart
+                AddToCart
               </button>
               <button
                 className={`wishlist-btn ${likedItems.includes(product.id) ? "liked" : ""}`}

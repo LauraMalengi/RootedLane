@@ -49,16 +49,7 @@ const Navbar = ({ cartCount = 0, onCartClick, user, setUser }) => {
 
         <ul className={`navbar-links ${isMobileMenuOpen ? "mobile-open" : ""}`}>
           <li><Link to="/" onClick={closeMobileMenu}>Home</Link></li>
-           <li className="dropdown">
-  <span className="dropbtn">Products ▾</span>
-  <div className="dropdown-content">
-    <Link to="Men" onClick={closeMobileMenu}>Men</Link>
-    <Link to="Women" onClick={closeMobileMenu}>Women</Link>
-    <Link to="Kids" onClick={closeMobileMenu}>Kids</Link>
-    <Link to="Family" onClick={closeMobileMenu}>Family</Link>
-   </div>
-   </li>
-
+           <li><Link to="/Collection" onClick={closeMobileMenu}>Product</Link></li>
         <li><Link to="/about" onClick={closeMobileMenu}>About Us</Link></li>
         <li><Link to="/contact" onClick={closeMobileMenu}>Contact Us</Link></li>
        <li><Link to="/Wishlist" onClick={closeMobileMenu}>Wishlist</Link></li>

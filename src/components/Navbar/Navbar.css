@@ -1,5 +1,5 @@
 .navbar {
-  background-color: #2c1810;
+  background: linear-gradient(to right, #2c5364, #5e4b8f, #b84f7a, #d45d79);
   padding: 1rem 0;
   position: sticky;
   top: 0;
@@ -22,7 +22,7 @@
 }
 
 .navbar-logo a {
-  color: #d4a574;
+  color: #FFFBF0;
   text-decoration: none;
   font-size: 1.8rem;
   font-weight: bold;
@@ -31,7 +31,7 @@
 }
 
 .navbar-logo a:hover {
-  color: #e5b684;
+  color: #4ECDC4;
 }
 
 .navbar-links {
@@ -51,7 +51,7 @@
 }
 
 .navbar-links li a:hover {
-  color: #d4a574;
+  color: #4ECDC4;
 }
 
 .navbar-right {
@@ -68,7 +68,7 @@
 
 .btn-logout,
 .btn-login {
-  background-color: #d4a574;
+  background-color: #F2D492;
   color: #2c1810;
   border: none;
   padding: 0.5rem 1rem;
@@ -82,7 +82,7 @@
 
 .btn-logout:hover,
 .btn-login:hover {
-  background-color: #c59563;
+  background-color: #4ECDC4;
 }
 
 .navbar-cart {
@@ -156,55 +156,3 @@
   }
 }
 
-.dropdown {
-  position: relative;
-}
-
-.dropbtn {
-  color: #fff;
-  cursor: pointer;
-  font-weight: 500;
-  font-size: 1rem;
-  transition: color 0.3s;
-}
-
-.dropbtn:hover {
-  color: #d4a574;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  top: 40px;
-  left: 0;
-  background-color: #2c1810;
-  border: 1px solid #d4a574;
-  min-width: 160px;
-  border-radius: 6px;
-  z-index: 1000;
-  box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
-}
-
-.dropdown-content a {
-  display: block;
-  padding: 10px 15px;
-  color: #fff;
-  text-decoration: none;
-  font-size: 0.95rem;
-  transition: all 0.3s ease;
-}
-
-.dropdown-content a:hover {
-  background-color: #d4a574;
-  color: #2c1810;
-}
-
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-
-.dropdown-content:hover {
-  display: block;
-}

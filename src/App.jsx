@@ -19,6 +19,7 @@ import OrderProcess from "./components/OrderProcess/Orderprocess";
 import AboutUs from "./components/About/AboutUs";
 import ContactUs from "./components/Contact/ContactUs";
 import Wishlist from './components/wishlist/Wishlist';
+import Collection from './components/Collection/Collection';
 
 function AppContent() {
   const [cartItems, setCartItems] = useState([]);
@@ -137,7 +138,7 @@ function AppContent() {
         <Route path="/about" element={<AboutUs />} />
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/Wishlist" element={<Wishlist addToCart={handleAddToCart} user={user} />} />
-         
+        <Route path="/Collection" element={<Collection />} />
 
         <Route 
           path="/checkout" 

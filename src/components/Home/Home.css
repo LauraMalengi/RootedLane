@@ -75,6 +75,8 @@
   font-size: 20px;
 }
 
+
+
 @keyframes slideIn {
   from {
     transform: translateX(100%);

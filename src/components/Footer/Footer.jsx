@@ -24,17 +24,16 @@ const Footer = () => {
         <div className="footer-section">
           <h4>Address</h4>
           <p>
-            Cismon <br />
-            Windsor West <br />
+            Cismon Windsor West <br />
             Louise and Knight <br />
-            Mbombela, South Africa
+            South Africa
           </p>
         </div>
 
         <div className="footer-section">
           <h4>Contact Us</h4>
           <p>WhatsApp: <a href="https://wa.me/27678000672">067 800 0672</a></p>
-          <p>Phone: <a href="tel:+27787148112">+27 78 714 8112</a> / <a href="tel:+27793952197">079 395 2197</a></p>
+          <p>Phone: <a href="tel:+27787148112">+27 78 714 8112</a>/ <a href="tel:+27793952197">079 395 2197</a></p>
           <p>Email: <a href="mailto:rootedlane@gmail.com">rootedlane@gmail.com</a></p>
           <p>Email: <a href="mailto:patrickmalengi3@gmail.com">patrickmalengi3@gmail.com</a></p>
         </div>
